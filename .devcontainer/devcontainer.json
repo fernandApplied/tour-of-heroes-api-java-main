@@ -1,0 +1,60 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/java-postgres
+{
+	"hostRequirements": {
+   		"cpus": 8,
+		"memory": "8gb",
+		"storage": "32gb"
+	},
+	"name": "Java & PostgreSQL",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	"features": {
+		"ghcr.io/devcontainers/features/azure-cli:1": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/sshd:1": {
+			"version": "latest"
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ckolkman.vscode-postgres",
+				"vscjava.vscode-gradle",
+				"humao.rest-client",
+				"GitHub.copilot",
+				"cweijan.vscode-redis-client",
+				"PKief.material-icon-theme"
+			]
+		},
+		"codespaces": {
+			"openFiles": [
+				"src/main/java/net/returngis/tourofheroes/HeroesController.java"
+			]
+		}
+	},
+	"containerEnv": {
+		"DB_DATASOURCE_URL": "jdbc:postgresql://localhost:5432/postgres",
+		"DB_USERNAME": "postgres",
+		"DB_PASSWORD": "postgres",
+		"REDIS_HOSTNAME": "redis",
+		"REDIS_PORT": "6379",
+		"REDIS_PASSWORD": "eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81"
+	},
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {}
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// This can be used to network with other containers or with the host.
+	"forwardPorts": [
+		8080
+	],
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "java -version",
+	"postStartCommand": "./gradlew bootRun"
+	// Configure tool-specific properties.
+	// "customizations": {},
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
