@@ -6,14 +6,14 @@ metadata:
   tags:
     - java    
   links:
-    - url: https://github.com/0GiS0/tour-of-heroes-api-java
+    - url: https://github.com/fernandApplied/tour-of-heroes-api-java-main
       title: Source Code
       icon: github
     - url: https://api.heroes.es
       title: Production
       icon: globe
   annotations:
-    github.com/project-slug: 0GiS0/tour-of-heroes-api-java
+    github.com/project-slug: fernandApplied/tour-of-heroes-api-java-main
 spec:
   type: service
   lifecycle: production
